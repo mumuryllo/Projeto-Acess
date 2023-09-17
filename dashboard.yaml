@@ -1,0 +1,384 @@
+openapi: 3.0.1
+info:
+  title: API - Acessibilidade num click
+  description: Projeto de um Dashboard administrativo para aplicar a ideia de acessibilidade
+  version: '1'
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /tecnicos/{id}:
+    get:
+      tags:
+        - Feature - Tecnicos
+      summary: ' : Lista todos os técnicos pelo ID'
+      operationId: findById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TecnicoDto'
+    put:
+      tags:
+        - Feature - Tecnicos
+      summary: ' : Atualiza os dados do  técnico pelo ID'
+      operationId: update
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TecnicoDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TecnicoDto'
+    delete:
+      tags:
+        - Feature - Tecnicos
+      summary: ' : Exclui um técnico pelo id'
+      operationId: delete
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TecnicoDto'
+  /clientes/{id}:
+    get:
+      tags:
+        - Feature - Clientes
+      summary: ' : Lista todos os clientes pelo ID'
+      operationId: findById_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteDto'
+    put:
+      tags:
+        - Feature - Clientes
+      summary: ' : Atualiza os dados do  cliente pelo ID'
+      operationId: update_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClienteDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteDto'
+    delete:
+      tags:
+        - Feature - Clientes
+      summary: ' : Exclui um cliente pelo id'
+      operationId: delete_1
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteDto'
+  /chamados/{id}:
+    get:
+      tags:
+        - Feature - Chamados
+      summary: ' : Lista todos os chamados pelo ID'
+      operationId: findById_2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChamadoDto'
+    put:
+      tags:
+        - Feature - Chamados
+      summary: ' : Atualiza os dados do  chamados pelo ID'
+      operationId: update_2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChamadoDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChamadoDto'
+  /tecnicos:
+    get:
+      tags:
+        - Feature - Tecnicos
+      summary: ' : Lista todos os técnicos '
+      operationId: findAll
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TecnicoDto'
+    post:
+      tags:
+        - Feature - Tecnicos
+      summary: ' : Insere os dados dos técnicos'
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TecnicoDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TecnicoDto'
+  /clientes:
+    get:
+      tags:
+        - Feature - Clientes
+      summary: ' : Lista todos os clientes '
+      operationId: findAll_1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClienteDto'
+    post:
+      tags:
+        - Feature - Clientes
+      summary: ' : Insere os dados dos clientes'
+      operationId: create_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClienteDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ClienteDto'
+  /chamados:
+    get:
+      tags:
+        - Feature - Chamados
+      summary: ' : Lista todos os chamados '
+      operationId: findAll_2
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ChamadoDto'
+    post:
+      tags:
+        - Feature - Chamados
+      summary: ' : Insere os dados dos chamados'
+      operationId: create_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChamadoDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ChamadoDto'
+components:
+  schemas:
+    TecnicoDto:
+      required:
+        - cpf
+        - email
+        - nome
+        - senha
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        email:
+          type: string
+        cpf:
+          type: string
+        senha:
+          type: string
+        perfis:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - ADMIN
+              - CLIENTE
+              - TECNICO
+        dataCriacao:
+          type: string
+          format: date
+    ClienteDto:
+      required:
+        - cpf
+        - email
+        - nome
+        - senha
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        email:
+          type: string
+        cpf:
+          type: string
+        senha:
+          type: string
+        perfis:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
+            enum:
+              - ADMIN
+              - CLIENTE
+              - TECNICO
+        dataCriacao:
+          type: string
+          format: date
+    ChamadoDto:
+      required:
+        - cliente
+        - observacao
+        - prioridade
+        - status
+        - tecnico
+        - titulo
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        dataAbertura:
+          type: string
+          format: date
+        dataFechamento:
+          type: string
+          format: date
+        prioridade:
+          type: integer
+          format: int32
+        status:
+          type: integer
+          format: int32
+        titulo:
+          type: string
+        observacao:
+          type: string
+        tecnico:
+          type: integer
+          format: int32
+        cliente:
+          type: integer
+          format: int32
+        nomeTecnico:
+          type: string
+        nomeCliente:
+          type: string
